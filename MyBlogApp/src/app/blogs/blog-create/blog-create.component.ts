@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
+import {  Blog } from '../blog.model';
 
 @Component({
-    selector: 'app-blog-create',
-    templateUrl: './blog-create.component.html'
+    selector: 'blog-create',
+    templateUrl: './blog-create.component.html',
+    styleUrls: ['./blog-create.component.css']
 })
 export class BlogCreateComponent {
-    newBlog = '';
-    enteredValue = '';   
+    enteredContent  = '' ;
+    enteredTitle = ''; 
+    @Output() blogCreated  = new EventEmitter<Blog>();
+
     addBlog(){
-        this.newBlog = this.enteredValue;
+        const blog : Blog = {
+            title: this.enteredTitle, 
+            content: this.enteredContent
+        }
+        this.blogCreated.emit(blog);
     }
 }

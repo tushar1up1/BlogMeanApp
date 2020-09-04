@@ -1,2 +1,6 @@
-<h1>Blog App</h1>
-<app-blog-create></app-blog-create>
+<blog-header></blog-header>
+<main>
+    <blog-create (blogCreated)="onBlogAdded($event)"></blog-create>
+    <blog-list [blogs]="storedBlogs"></blog-list>
+</main>
+

@@ -1,5 +1,9 @@
-<h1>Create Blog here</h1>
-<textarea rows="5" [(ngModel)]='enteredValue'></textarea>
-<br>
-<button (click)="addBlog()">Add Blog</button>
-<p> {{ newBlog }}</p>
+<mat-card>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]='enteredTitle'>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput rows="5" [(ngModel)]='enteredContent'></textarea>
+    </mat-form-field>
+    <button color="primary" mat-raised-button (click)="addBlog()">Add Blog</button>
+</mat-card>
