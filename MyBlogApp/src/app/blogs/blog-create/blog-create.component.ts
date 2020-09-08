@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 import {  Blog } from '../blog.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'blog-create',
@@ -12,10 +13,13 @@ export class BlogCreateComponent {
     enteredTitle = ''; 
     @Output() blogCreated  = new EventEmitter<Blog>();
 
-    addBlog(){
+    addBlog(form: NgForm){
+        if(form.invalid){
+            return;
+        }
         const blog : Blog = {
-            title: this.enteredTitle, 
-            content: this.enteredContent
+            title: form.value.title, 
+            content: form.value.content
         }
         this.blogCreated.emit(blog);
     }
