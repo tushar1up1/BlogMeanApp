@@ -7,10 +7,11 @@ import {  Blog } from './blogs/blog.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  storedBlogs : Blog[] = [];
-  onBlogAdded(blog : Blog) {
-    this.storedBlogs.push(blog);
-  }
+  //this is not needed now
+  //storedBlogs : Blog[] = [];
+  //onBlogAdded(blog : Blog) {
+  //  this.storedBlogs.push(blog);
+  //}
 
   
 }

@@ -3,6 +3,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import {  Blog } from '../blog.model';
 import { NgForm } from '@angular/forms';
 
+import { BlogService } from '../blogs.service';
+
 @Component({
     selector: 'blog-create',
     templateUrl: './blog-create.component.html',
@@ -11,7 +13,8 @@ import { NgForm } from '@angular/forms';
 export class BlogCreateComponent {
     enteredContent  = '' ;
     enteredTitle = ''; 
-    @Output() blogCreated  = new EventEmitter<Blog>();
+    //No need below code after implementing service
+    //@Output() blogCreated  = new EventEmitter<Blog>();
 
     addBlog(form: NgForm){
         if(form.invalid){
@@ -21,6 +24,9 @@ export class BlogCreateComponent {
             title: form.value.title, 
             content: form.value.content
         }
-        this.blogCreated.emit(blog);
+        this.BlogService.addBlog(form.value.title, form.value.content);
+        //this.blogCreated.emit(blog);
     }
+
+    constructor(public BlogService : BlogService) {}
 }

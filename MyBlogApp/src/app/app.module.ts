@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { BlogCreateComponent } from './blogs/blog-create/blog-create.component';
 import { HeaderComponent } from './blogs/header/header.component';
 import { BlogListComponent} from './blogs/blog-list/blog-list.component';
+import { BlogService } from './blogs/blogs.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { BlogListComponent} from './blogs/blog-list/blog-list.component';
     MatToolbarModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [BlogService], //providers are for services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
